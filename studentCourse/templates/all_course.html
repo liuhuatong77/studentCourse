@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load course_type %}
+{% block title %}
+全部课程
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+
+            <h1 class="text-center text-primary">学校全部课程</h1>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                            <th>课程名字</th>
+                            <th>课程编号</th>
+                            <th>学分</th>
+                            <th>学修/必修</th>
+                            <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for i in courses%}
+
+                     <tr>
+                            <th> <a href="{% url 'course_detail' i.id %}" style="text-decoration: none">{{ i.name }}</a> </th>
+                            <th>{{ i.code }}</th>
+                            <th>{{ i.credit }}</th>
+                            <th>{{ i.type | course_type}}</th>
+                            <th><a href="{% url 'edit_course' i.pk %}"><button type="button" class="btn btn-primary">编辑 </button></a></th>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}

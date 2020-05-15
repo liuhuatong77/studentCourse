@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}  更改密码{% endblock %}
+{% block content %}
+
+<form method="post" action="" enctype="multipart/form-data">
+        <h1 class="text-primary text-center">更换密码</h1>
+       {% if message %}
+        {{ message }}
+        {% endif %}
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group ">
+                {{ field.errors }}
+                {{ field.label_tag }}{{ field }}
+            </div>
+        {% endfor %}
+            <div>
+                <button type="submit" class="btn btn-primary">确定</button>
+            </div>
+</form>
+{% endblock %}

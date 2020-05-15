@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %} 个人信息 {% endblock %}
+{% block content %}
+    <div class="container-fluid">
+    <h1 class="text-center text-primary">个人资料</h1>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-9">
+                        <p>姓名:<strong>{{ user.username }}</strong></p>
+                        <p>所教班级:{% for i in user.account.teacher.classes_set.all %}
+                          <a href="{% url 'classess_all' i.id %}"> <button type="button" class="btn btn-primary">{{i.name}}</button></a>
+                            {% endfor %}
+                        </p>
+                         <p>工号:{{ user.account.code }}</p>
+                        <p>电话: {{ user.account.telephone }}</p>
+
+                    </div>
+                    <div class="col-3">
+                        <img class="img-fluid rounded" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2534506313,1688529724&fm=26&gp=0.jpg" alt="上传头像">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {% if  not user.account.teacher.course_set.all %}
+                         <p>授课课程:   <div class="alert alert-warning">课程表待安排</div> </p>
+                            {% else  %}
+                        <p>授课课程:{% for i in user.account.teacher.course_set.all %}
+                            <button type="button" class="btn btn-danger">{{ i.name }}</button>
+                            {% endfor %}
+                        </p>
+                        {% endif %}
+                       <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">老师简介</span>
+                          </div>
+                          <textarea class="form-control" aria-label="With textarea">{{ user.account.teacher.brief }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right">
+               <a href="{% url 'teacher_profile_update' user.pk %}" > <button type="button" class="btn btn-primary">  更新信息</button></a>
+                    </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

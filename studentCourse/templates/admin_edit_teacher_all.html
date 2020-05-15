@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}
+    教师信息管理
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="container">
+            {% if message %}
+                <div class="alert-warning  alert text-center">{{ message }}</div>
+            {% endif %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>工号</th>
+                        <th>教师姓名</th>
+                        <th>教的学生班级</th>
+                        <th>教学课程</th>
+                        <th>老师电话</th>
+                        <th>操作</th>
+                        <th>注意</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for i in all_teacher %}
+                    <tr>
+                        <th>{{ i.id.code}}</th>
+                        <th>{{ i.id.user.username }}</th>
+                        <th>{% for k in i.classes_set.all %}
+                                {{ k.name}}
+                            {% endfor %}
+                            </th>
+                        <th>{% for l in i.course_set.all%}
+                                {{ l.name }}
+                            {% endfor %}
+                            </th>
+                        <th>{{ i.id.telephone }}</th>
+                        <th><a href="{% url 'edit_teacher_detail' i.id.id %}"><button type="button" class="btn btn-primary">编辑</button></a> </th>
+                        <th><a href="#"><button type="button" class="btn btn-primary">删除</button> </a></th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

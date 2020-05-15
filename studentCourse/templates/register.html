@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} 注册信息{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+    <form method="post" action="" enctype="multipart/form-data">
+           {% if message %}
+        <div class="alert-warning  alert text-center">{{ message }}</div>
+    {% endif %}
+        <h1 class="text-primary text-center">用户注册</h1>
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group ">
+                {{ field.errors }}
+                {{ field.label_tag }}{{ field }}
+            </div>
+        {% endfor %} 
+            <div class="btn">
+                <button type="reset" class="btn btn-default">重置</button>
+               <button type="submit" class="btn btn-primary">确定</button>
+            </div>
+    </form>
+    </div>
+{% endblock %}

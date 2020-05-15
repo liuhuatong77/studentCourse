@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ course.name }}信息
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+
+                <div>
+                     <h1 class="text-primary text-center">课程详情</h1>
+                    <p>课程名字:{{ course.name }}</p>
+                    <p>课程编号:{{ course.code }}</p>
+                    <p>课程学分:{{ course.credit }}</p>
+                    {% if teachers %}
+                        <p>任课老师:
+                            {% for i in teachers%}
+                                {{ i.id.user.username }}
+                            {% endfor %}
+                        </p>
+                    {% else %}
+                        <p>任课老师:<strong>未安排任课老师</strong></p>
+                    {% endif %}
+                    <div>
+                        <button type="button" class="btn btn-primary">编辑</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+{% endblock %}

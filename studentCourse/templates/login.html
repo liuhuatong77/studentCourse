@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} 用户登陆 {% endblock %}
+{% block content %}
+
+    <div class="container-fluid">
+
+    <div class="row" style="margin-top: 50px">
+
+    <div class="col-4"></div>
+    <div class="col-4">
+
+    <form method="post" action="" enctype="multipart/form-data">
+        {% if message %}
+            <div class="alert alert-warning">{{ message }}</div>
+        {% endif %}
+       <h1 class="text-center text-primary">欢迎登录!</h1>
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group row">
+                {{ field.errors }}
+                <div class="col-3"> {{ field.label_tag }}</div>
+               <div class="col-9">{{ field }}</div>
+            </div>
+        {% endfor %}
+        <div class="text-center">
+        <button type="reset" class="btn btn-default pull-left" style="margin-right: 20px">重置</button>
+        <button type="submit" class="btn btn-primary pull-right">提交</button></div>
+    </form>
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+    </div>
+{% endblock %}
+

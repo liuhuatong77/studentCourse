@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load status_tags %}
+{% block title %}编辑信息{% endblock %}
+{% block content %}
+    <form method="post" action="" enctype="multipart/form-data">
+        {% if message %}
+            <div class="alert-warning alert"> {{ message }}</div>
+        {% endif %}
+        <h1 class="text-center text-primary">{{ user.account.status | status_tags}}补全信息</h1>
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group ">
+                {{ field.errors }}
+                {{ field.label_tag }}{{ field }}
+            </div>
+        {% endfor %}
+            <div>
+                <button type="submit" class="btn btn-primary">确定</button>
+            </div>
+    </form>
+{% endblock %}

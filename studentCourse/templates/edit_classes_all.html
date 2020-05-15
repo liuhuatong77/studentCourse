@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+     管理员界面
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>班级id</th>
+                    <th>班级姓名</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for i in classes %}
+                <tr>
+                    <th>{{ i.id }}</th>
+                    <th>{{ i.name }}</th>
+                    <th><a href="{% url 'edit_class_student' i.id %}"><button type="button" class="btn btn-primary">编辑</button></a></th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %}

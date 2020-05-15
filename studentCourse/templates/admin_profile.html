@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} 个人信息 {% endblock %}
+{% block content %}
+    <div class="container-fluid">
+    <h1 class="text-center text-primary">管理员个人资料</h1>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-9">
+                        <p>姓名:{{ user.username }}</p>
+                        <p>工号:{{ user.account.code }}</p>
+                    </div>
+                    <div class="col-3">
+                        <img class="img-fluid rounded" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2534506313,1688529724&fm=26&gp=0.jpg" alt="上传头像">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p>简介:{% for i in user.account.student.course_set.all %}
+                            {{ i.name }},
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right" style="margin-top: 20px">
+               <a href="#" > <button type="button" class="btn btn-primary">  更新信息</button></a>
+                    </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

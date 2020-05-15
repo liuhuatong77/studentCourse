@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+      信息编辑
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+      <div class="container">
+        <form method="post" action="" enctype="multipart/form-data">
+            {% if message %}
+        <div class="alert-warning alert"> {{ message }}</div>
+        {% endif %}
+        <h1 class="text-center text-primary">教师信息管理</h1>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group ">
+                    {{ field.errors }}
+                    {{ field.label_tag }}{{ field }}
+                </div>
+            {% endfor %}
+                <div>
+                    <button type="reset" class="btn btn-default ">重置</button>
+                    <button type="submit" class="btn btn-primary">确定</button>
+                </div>
+        </form>
+    </div>
+    </div>
+{% endblock %}
