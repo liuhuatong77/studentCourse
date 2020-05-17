@@ -20,14 +20,14 @@ django3,python3.8,mysql,linux(我是在linux下写的,但对windows应该无影�
 6. 访问http://127.0.0.1:8000/login/即可
 ## 下面是一些项目运行图片
 ![](https://github.com/liuhuatong77/image/blob/master/1.png?raw=true)
-![](file:///home/test/Desktop/2.png)
-![](file:///home/test/Desktop/3.png)
-![](file:///home/test/Desktop/4.png)
-![](file:///home/test/Desktop/9.png)
-![](file:///home/test/Desktop/5png)
-![](file:///home/test/Desktop/6.png)
-![](file:///home/test/Desktop/7.png)
-![](file:///home/test/Desktop/8.png)
+![](https://github.com/liuhuatong77/image/blob/master/2.png?raw=true)
+![](https://github.com/liuhuatong77/image/blob/master/3.png?raw=true)
+![](https://github.com/liuhuatong77/image/blob/master/4.png?raw=true)
+![](https://github.com/liuhuatong77/image/blob/master/5.png?raw=true)
+![](https://github.com/liuhuatong77/image/blob/master/6.png?raw=true)
+![](https://github.com/liuhuatong77/image/blob/master/7.png?raw=true)
+![](https://github.com/liuhuatong77/image/blob/master/8.png?raw=true)
+![](https://github.com/liuhuatong77/image/blob/master/9.png?raw=true)
 # 项目详解
 1. 使用Django Auth自带的User模型进行扩展了一个用户表account,account又分别一对一了学生表student,  
 教师表teacher,管理员表.所以我在注册用户时,要分别在自带User表保存,和用户表account保存和account  
