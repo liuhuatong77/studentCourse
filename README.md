@@ -19,7 +19,7 @@ django3,python3.8,mysql,linux(我是在linux下写的,但对windows应该无影�
 5. 执行python manage.py runserver 0.0.0.0:8000运行项目  
 6. 访问http://127.0.0.1:8000/login/即可
 ## 下面是一些项目运行图片
-![](file:///home/test/Desktop/1.png)
+![](https://github.com/liuhuatong77/image/blob/master/1.png?raw=true)
 ![](file:///home/test/Desktop/2.png)
 ![](file:///home/test/Desktop/3.png)
 ![](file:///home/test/Desktop/4.png)
